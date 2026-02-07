@@ -1,4 +1,4 @@
-# CompAssistant - 大学生竞赛 DDL 管理系统
+# CompAssistant - 大学生竞赛帮助系统
 
 一个简约、现代的大学生竞赛截止日期管理网站。
 
