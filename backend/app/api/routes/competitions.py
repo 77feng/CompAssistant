@@ -14,12 +14,18 @@ DATA_FILE = Path(__file__).parent.parent.parent.parent / "data" / "competitions.
 def load_competitions():
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
-    
-    # 转换日期字符串为 datetime 对象
+
+    # 转换日期字符串为 datetime 对象；空字符串视为未开始
     for item in data:
-        if item.get("deadline"):
-            item["deadline"] = datetime.fromisoformat(item["deadline"])
-    
+        raw_deadline = item.get("deadline")
+        if isinstance(raw_deadline, str):
+            raw_deadline = raw_deadline.strip()
+
+        if raw_deadline:
+            item["deadline"] = datetime.fromisoformat(raw_deadline)
+        else:
+            item["deadline"] = None
+
     return data
 
 

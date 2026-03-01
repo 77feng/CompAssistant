@@ -255,7 +255,7 @@ export default {
 
     const getStatusInfo = (deadline) => {
       if (!deadline) {
-        return { label: '待定', expired: false }
+        return { label: '未开始', expired: false }
       }
       const now = new Date()
       const deadlineDate = new Date(deadline)
